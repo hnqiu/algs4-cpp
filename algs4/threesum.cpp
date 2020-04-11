@@ -33,30 +33,41 @@ int main(int argc, char *argv[]) {
     }
 
     std::string filename(argv[1]);
-    std::vector<int> list = read_int(filename);
-    std::cout << "Calculating..." << std::endl;
-    int count = threesum(list);
-    std::cout << "There are " << count
-        << " of triples in file '" << filename << "' that sum to 0" << std::endl;
+    std::cout << "Reading file " << filename << std::endl;
+    try {
+        std::vector<int> list = read_int(filename);
+        std::cout << "Calculating..." << std::endl;
+        int count = threesum(list);
+        std::cout << "There are " << count
+            << " of triples in file '" << filename << "' that sum to 0" << std::endl;
+    }
+    catch(const std::ifstream::failure &e) {
+        std::cerr << e.what() << std::endl;
+    }
+
     return 0;
 }
 
 
 /* @brief: read integers from file */
 std::vector<int> read_int(const std::string &file) {
-    std::vector<int> list;
     std::ifstream ifs(file);
+    // this will catch eof as well
+    // ifs.exceptions(std::ifstream::failbit);
+    // std::cout << ifs.exceptions() << std::endl;
+    // use this instead
     if (!ifs) {
-        std::cerr << "Error: cannot open file " << file << std::endl;
-        return list;
+        throw std::ifstream::failure("cannot open file " + file);
     }
 
+    std::vector<int> list;
     int tmp;
     while (ifs >> tmp) {
         list.push_back(tmp);
     }
     ifs.close();
     std::cout << "Total number of integers is " << list.size() << std::endl;
+
     return list;
 }
 
