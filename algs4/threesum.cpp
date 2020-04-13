@@ -17,6 +17,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <chrono>
 
 /* @brief: read integers from file */
 std::vector<int> read_int(const std::string &file);
@@ -32,14 +33,20 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
+    using namespace std::chrono;
+
     std::string filename(argv[1]);
     std::cout << "Reading file " << filename << std::endl;
     try {
         std::vector<int> list = read_int(filename);
         std::cout << "Calculating..." << std::endl;
+        auto now = steady_clock::now();
         int count = threesum(list);
+        duration<double> dur = steady_clock::now()-now;
         std::cout << "There are " << count
             << " of triples in file '" << filename << "' that sum to 0" << std::endl;
+        std::cout << "Time elapsed during counting is " 
+            << dur.count() << "s" << std::endl;
     }
     catch(const std::ifstream::failure &e) {
         std::cerr << e.what() << std::endl;
