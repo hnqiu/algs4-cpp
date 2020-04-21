@@ -4,7 +4,7 @@
  */
 
 
-/* @brief: count number of triples in a file that sum to 0
+/* @brief: count number of triples in a file that sum to 0 (P173)
  * A program with cubic running time that
  * reads integers from a file and counts the number of triples that sum to 0
  * Files are located at ./data/
@@ -36,9 +36,11 @@ int main(int argc, char *argv[]) {
     using namespace std::chrono;
 
     std::string filename(argv[1]);
-    std::cout << "Reading file " << filename << std::endl;
     try {
+        std::cout << "Reading file " << filename << std::endl;
         std::vector<int> list = read_int(filename);
+        std::cout << "Total number of integers is " << list.size() << std::endl;
+
         std::cout << "Calculating..." << std::endl;
         auto now = steady_clock::now();
         int count = threesum(list);
@@ -73,7 +75,6 @@ std::vector<int> read_int(const std::string &file) {
         list.push_back(tmp);
     }
     ifs.close();
-    std::cout << "Total number of integers is " << list.size() << std::endl;
 
     return list;
 }
