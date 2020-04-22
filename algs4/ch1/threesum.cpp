@@ -9,8 +9,9 @@
  * reads integers from a file and counts the number of triples that sum to 0
  * Files are located at ./data/
  * 
- * To compile, g++ threesum.cpp -o threesum
+ * To compile, g++ ch1/threesum.cpp -o threesum
  * To execute, ./threesum data/[file].txt
+ * in dir ./algs4-cpp/algs4/
  */
 
 #include <iostream>
