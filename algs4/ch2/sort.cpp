@@ -4,36 +4,16 @@
  */
 
 
-/* @brief: sort a sequence of integers using selection sort (P248)
- * A program with n^2 running time that
- * sort a sequence in ascending order
- * 
- * To compile, g++ ch2/selection.cpp -o algs
- * To execute, ./algs
+/* @brief: sort a sequence of integers using different sorting algorithms
+ * To compile, g++ ch2/sort.cpp -o sort
+ * To execute, ./sort
  * while in dir ./algs4-cpp/algs4/
  */
 
 
+#include "selection.h"
 #include "../inc/utilities.h"
-#include <iostream>
-#include <vector>
 #include <random>
-
-
-namespace algs4 {
-    /* @brief: sort a sequence of inputs using selection sort */
-    template <typename Iterator>
-    void selectionSort(Iterator begin, Iterator end) {
-        for (Iterator i = begin; i < end; ++i) {
-            Iterator min = i;
-            for (Iterator j = i+1; j < end; ++j) {
-                if (*min > *j)
-                    min = j;
-            }
-            std::swap(*min, *i);
-        }
-    }
-}
 
 
 int main(int argc, char* argv[]) {
