@@ -5,7 +5,7 @@
 
 
 /* @brief: selection sort implementation (P248)
- * A program with consistent n^2 running time that
+ * A program with consistent ~n^2/2 running time that
  * sort a sequence in ascending order
  */
 
@@ -13,6 +13,7 @@
 #pragma once
 
 #include <utility>
+#include <cassert>
 
 
 namespace algs4 {
@@ -21,6 +22,7 @@ namespace algs4 {
      */
     template <typename Iterator>
     void selectionSort(Iterator begin, Iterator end) {
+        assert(begin <= end);
         for (Iterator i = begin; i < end; ++i) {
             Iterator min = i;
             for (Iterator j = i+1; j < end; ++j) {

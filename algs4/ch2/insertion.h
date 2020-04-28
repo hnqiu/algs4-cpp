@@ -5,7 +5,7 @@
 
 
 /* @brief: insertion sort implementation (P250)
- * A program with averaged n^2 running time that
+ * A program with averaged ~n^2/2 running time that
  * sort a sequence in ascending order
  */
 
