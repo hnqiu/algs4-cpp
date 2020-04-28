@@ -11,8 +11,10 @@
  */
 
 
+#include "sort.h"
 #include "selection.h"
 #include "insertion.h"
+#include "shell.h"
 #include "../inc/utilities.h"
 
 
@@ -27,6 +29,8 @@ int main(int argc, char* argv[]) {
 
     // sort
     // algs4::selectionSort(list.begin(), list.end());
-    algs4::insertionSort(list.begin(), list.end());
+    // algs4::insertionSort(list.begin(), list.end());
+    algs4::shellSort(list.begin(), list.end());
+    assert( algs4::isSorted(list.begin(), list.end()) );
     std::cout << "Sequence sorted:\n" << list << std::endl;
 }
