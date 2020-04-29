@@ -18,11 +18,14 @@
 
 namespace algs4 {
     /* @brief: sort a sequence of inputs using selection sort
-     * in ascending order
+     * @discription: argument type can be the pointer to a c-type array
+     * or the iterator of any standard sequential container
+     * or maybe can be extended to ordered associative containers (NOT tested)
+     * if the relational operators (<, >) are changed to std::less()/greater()
      */
     template <typename Iterator>
     void selectionSort(Iterator begin, Iterator end) {
-        assert(begin <= end);
+        assert(begin < end);
         for (Iterator i = begin; i < end; ++i) {
             Iterator min = i;
             for (Iterator j = i+1; j < end; ++j) {

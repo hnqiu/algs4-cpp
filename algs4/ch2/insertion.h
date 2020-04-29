@@ -18,11 +18,14 @@
 
 namespace algs4 {
     /* @brief: sort a sequence of inputs using insertion sort
-     * sort sequence in ascending order
+     * @discription: argument type can be the pointer to a c-type array
+     * or the iterator of any standard sequential container
+     * or maybe can be extended to ordered associative containers (NOT tested)
+     * if the relational operators (<, >) are changed to std::less()/greater()
      */
     template <typename Iterator>
     void insertionSort(Iterator begin, Iterator end) {
-        assert(begin <= end);
+        assert(begin < end);
         for (Iterator i = begin+1; i < end; ++i) {
             for (Iterator j = i; j > begin && *j < *(j-1); --j) {
                 std::swap(*j, *(j-1));
