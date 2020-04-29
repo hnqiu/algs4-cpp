@@ -18,6 +18,7 @@
 #include "selection.h"
 #include "insertion.h"
 #include "shell.h"
+#include "merge.h"
 #include "../inc/utilities.h"
 
 
@@ -36,7 +37,8 @@ int main(int argc, char* argv[]) {
     // sort
     // algs4::selectionSort(list.begin(), list.end());
     // algs4::insertionSort(list.begin(), list.end());
-    algs4::shellSort(list.begin(), list.end());
+    // algs4::shellSort(list.begin(), list.end());
+    algs4::mergeSort(std::begin(list), std::end(list));
     assert( algs4::isSorted(std::begin(list), std::end(list)) );
     std::cout << "Sequence sorted:\n" << list << std::endl;
 }
