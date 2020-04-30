@@ -6,6 +6,7 @@
 
 /* @brief: sort a sequence of integers using different sorting algorithms
  * To compile, g++ ch2/sort.cpp -o sort
+ * To build release, g++ -DNDEBUG ch2/sort.cpp -o sort
  * To execute, ./sort
  * while in dir ./algs4-cpp/algs4/
  * 

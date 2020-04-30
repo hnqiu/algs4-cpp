@@ -19,6 +19,7 @@
 
 
 namespace algs4 {
+  namespace merge_private {
     /* @brief: merge two ordered subsequences into a single ordered one
      * @discription: stably merge aux[lo..mid) with aux[mid..hi) into out[lo..hi)
      */
@@ -63,6 +64,7 @@ namespace algs4 {
         mergeSort(aux_mid, aux_end, mid, end);
         merge(aux_begin, aux_mid, aux_end, begin);
     }
+  }
 
 
     /* @brief: sort a sequence of inputs using top-down mergesort
@@ -76,6 +78,6 @@ namespace algs4 {
         // use pre-allocated space to avoid recursive allocations of temp copies
         typedef typename std::iterator_traits<Iterator>::value_type elemType;
         auto aux = std::vector<elemType>(begin, end); // std::copy(begin, end)
-        mergeSort(begin, end, aux.begin(), aux.end());
+        merge_private::mergeSort(begin, end, aux.begin(), aux.end());
     }
 }
