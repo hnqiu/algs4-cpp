@@ -64,16 +64,14 @@ namespace algs4 {
         for (size_t sz = 1; sz < length; sz *= 2) {
             Iterator lo = begin;
             auto lo_aux = aux.begin();
-            while (lo + sz < end) {
-                Iterator smaller_end = algs4::min(lo + 2*sz, end);
-                mergeBU_private::merge(lo, lo + sz, smaller_end, lo_aux);
-                lo += 2*sz;
-                lo_aux += 2*sz;
+            for ( ; lo + sz < end; lo += 2*sz, lo_aux += 2*sz) {
+                mergeBU_private::merge(lo, lo+sz, algs4::min(lo+2*sz, end), lo_aux);
             }
             std::copy(aux.begin(), aux.end(), begin);
             // std::cout << "sub size = " << sz << '\n';
             // print(begin, end, 2*sz);
         }
+    }
 
         // iteratively merges subsequences back and forth between two buffers
         // if flag = true, merge sorted subsequences into the auxiliary
@@ -117,6 +115,6 @@ namespace algs4 {
             std::copy(aux.begin(), aux.end(), begin);
         }
         */
-    }
+    // }
 
 }

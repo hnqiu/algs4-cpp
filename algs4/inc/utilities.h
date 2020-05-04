@@ -22,7 +22,7 @@ std::ostream& operator<<(std::ostream &os, const std::vector<T> &t) {
 
 
 namespace algs4 {
-    /* return a vector of random integers between [min, max]
+    /* @brief: return a vector of random integers between [min, max]
      * using uniform distribution
      */
     inline std::vector<int> rand(const size_t &s, const int &min, const int &max) {
