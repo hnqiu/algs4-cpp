@@ -36,4 +36,26 @@ namespace algs4 {
         }
         return list;
     }
+
+
+    /* @brief: print out the sequence with formatting
+     * @discription: print out 'num' numbers in a line
+     */
+    template <typename Iterator>
+    void print(const Iterator begin, const Iterator end, size_t num) {
+        for (const Iterator i = begin; i != end; ) {
+            for (size_t n = 0; n < num && i < end; ++n) {
+                std::cout << *i++ << " ";
+            }
+            std::cout << std::endl;
+        }
+    }
+
+
+    /* @brief: return the smaller iterator */
+    template <typename Iterator>
+    Iterator min(Iterator a, Iterator b) {
+        return (a < b) ? a : b;
+    }
+
 }

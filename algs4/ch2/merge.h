@@ -47,6 +47,7 @@ namespace algs4 {
 
 
     /* @brief: actual implementation of mergesort
+     * iteratively merges subsequences back and forth between two buffers
      * @discription: if the auxiliary subsequences are sorted,
      * merge them into the original sequence
      * if the original subsequences are sorted, merge them into the auxiliary
