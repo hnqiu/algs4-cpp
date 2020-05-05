@@ -5,7 +5,8 @@
 
 
 /* @brief: top-down mergesort implementation (P270)
- * A program with guaranteed n log n running time to sort a sequence
+ * A sorting program with guaranteed n log n running time
+ * at the cost of extra n space
  */
 
 
@@ -56,11 +57,12 @@ namespace algs4 {
     void mergeSort(Iterator begin, Iterator end, 
                    Iterator_aux aux_begin, Iterator_aux aux_end) {
         if (begin == end-1) return; // size == 1
-        // Iterator mid = begin + (end - begin) / 2;
+        // Iterator mid = std::next(begin, std::distance(begin, end)/2);
+        // Iterator_aux aux_mid = 
+        //         std::next(aux_begin, std::distance(aux_begin, aux_end)/2);
         // use the following instead
-        Iterator mid = std::next(begin, std::distance(begin, end)/2);
-        Iterator_aux aux_mid = 
-                std::next(aux_begin, std::distance(aux_begin, aux_end)/2);
+        Iterator mid = begin + (end - begin) / 2;
+        Iterator_aux aux_mid = aux_begin + (aux_end - aux_begin) / 2;
         mergeSort(aux_begin, aux_mid, begin, mid);
         mergeSort(aux_mid, aux_end, mid, end);
         merge(aux_begin, aux_mid, aux_end, begin);

@@ -22,8 +22,6 @@ namespace algs4 {
      * h-sort subsequence until h decreased to 1
      * @discription: argument type can be the pointer to a c-type array
      * or the iterator of any standard sequential container
-     * or maybe can be extended to ordered associative containers (NOT tested)
-     * if the relational operators (<, >) are changed to std::less()/greater()
      */
     template <typename Iterator>
     void shellSort(Iterator begin, Iterator end) {
