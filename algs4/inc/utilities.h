@@ -43,7 +43,7 @@ namespace algs4 {
      */
     template <typename Iterator>
     void print(const Iterator begin, const Iterator end, size_t num) {
-        for (const Iterator i = begin; i != end; ) {
+        for (Iterator i = begin; i != end; ) {
             for (size_t n = 0; n < num && i < end; ++n) {
                 std::cout << *i++ << " ";
             }
